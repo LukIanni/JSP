@@ -1,9 +1,3 @@
-<%-- 
-    Document   : lukas.jsp
-    Created on : 18 de mar. de 2025, 14:41:58
-    Author     : ianni
---%>
-
 <%@page import="java.text.DateFormatSymbols"%>
 <%@page import="java.util.Calendar"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -84,9 +78,13 @@
                 }
 
                 // Adicionar células vazias para completar a última semana
-                while (cal.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
+                int diaSemanaFinal = cal.get(Calendar.DAY_OF_WEEK);
+                int diasRestantes = 7 - diaSemanaFinal;
+
+                for (int i = 0; i < diasRestantes && diaSemanaFinal != Calendar.SUNDAY; i++) {
                     out.println("<td></td>");
                     cal.add(Calendar.DAY_OF_MONTH, 1);
+                    diaSemanaFinal = cal.get(Calendar.DAY_OF_WEEK);
                 }
 
                 out.println("</tr></tbody>");
