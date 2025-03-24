@@ -40,7 +40,7 @@
 
             if (anoStr != null && mesStr != null) {
                 int ano = Integer.parseInt(anoStr);
-                int mes = Integer.parseInt(mesStr) - 1; // Correção: Subtrair 1 do mês
+                int mes = Integer.parseInt(mesStr) - 1; 
 
                 Calendar cal = Calendar.getInstance();
                 cal.set(Calendar.YEAR, ano);
@@ -53,17 +53,17 @@
                 String[] diasSemana = new DateFormatSymbols().getShortWeekdays();
                 String[] mesesAno = new DateFormatSymbols().getMonths();
 
-                out.println("<h2>Calendario de " + mesesAno[mes] + " de " + ano + "</h2>"); // Correção: Adicionar espaço
+                out.println("<h2>Calendario de " + mesesAno[mes] + " de " + ano + "</h2>"); 
                 out.println("<table>");
-                out.println("<thead><tr>"); // Correção: Abrir linha do cabeçalho
+                out.println("<thead><tr>"); 
 
                 for (int i = 1; i < diasSemana.length; i++){
                     out.println ("<th>" + diasSemana[i] + "</th>");
                 }
-                out.println("</tr></thead>"); // Correção: Fechar linha do cabeçalho
+                out.println("</tr></thead>"); 
                 out.println("<tbody><tr>");
 
-                // Adicionar células vazias para o primeiro dia do mês
+               
                 for (int i = 1; i < primeiroDoMes; i++) {
                     out.println("<td></td>");
                 }
@@ -77,7 +77,6 @@
                     }
                 }
 
-                // Adicionar células vazias para completar a última semana
                 int diaSemanaFinal = cal.get(Calendar.DAY_OF_WEEK);
                 int diasRestantes = 7 - diaSemanaFinal;
 
